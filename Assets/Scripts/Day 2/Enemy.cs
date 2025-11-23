@@ -66,5 +66,35 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    
+    /// <summary>
+    /// Called when enemy is destroyed by player bullet
+    /// </summary>
+    public void OnEnemyDestroyed()
+    {
+        // Add score when enemy is destroyed
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.AddEnemyKillScore();
+        }
+        
+        // Optional: Add explosion effect or sound
+        // Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        
+        Destroy(gameObject);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // If hit by player bullet
+        if (other.CompareTag("PlayerBullet"))
+        {
+            // Destroy the bullet
+            Destroy(other.gameObject);
+            
+            // Destroy enemy and add score
+            OnEnemyDestroyed();
+        }
+    }
 
 }
