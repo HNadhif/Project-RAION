@@ -97,7 +97,7 @@ public class Movements : MonoBehaviour
                 bulletScript.SetSpeed(bulletSpeed);
             }
         }
-        
+        bullet.transform.rotation = Quaternion.Euler(0, 0, -90);
         // Set bullet tag
         bullet.tag = "PlayerBullet";
     }
