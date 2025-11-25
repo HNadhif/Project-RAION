@@ -19,6 +19,7 @@ public class Movements : MonoBehaviour
     [SerializeField] private float bulletSpeed = 15f;
     [SerializeField] private float fireRate = 0.3f;
     [SerializeField] private KeyCode fireKey = KeyCode.Space;
+    [SerializeField] private KeyCode missileKey = KeyCode.E;
     
     private float nextFireTime = 0f;
 
@@ -59,6 +60,9 @@ public class Movements : MonoBehaviour
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
+        } else if (Input.GetKeyDown(missileKey) && Time.time >= nextFireTime)
+        {
+            ShootMissile();
         }
     }
 
@@ -101,6 +105,42 @@ public class Movements : MonoBehaviour
         bullet.transform.rotation = Quaternion.Euler(0, 0, -90);
         // Set bullet tag
         bullet.tag = "PlayerBullet";
+    }
+
+    private void ShootMissile()
+    {
+        if (missilePrefab == null)
+        {
+            Debug.LogWarning("Missile prefab is not assigned!");
+            return;
+        }
+        
+        // Determine fire point
+        Vector3 spawnPosition = firePoint != null ? firePoint.position : transform.position;
+        
+        spawnPosition.y -= 0.5f;
+        
+        GameObject missile = Instantiate(missilePrefab, spawnPosition, Quaternion.identity);
+        
+        // Set bullet direction and speed
+        /* Rigidbody2D missileRb = missile.GetComponent<Rigidbody2D>();
+        if (missileRb != null)
+        {
+            missile.linearVelocity = Vector2.right * bulletSpeed;
+        }
+        else
+        {
+            // If no Rigidbody2D, try to get Bullet component and set direction
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.SetDirection(Vector3.right);
+                bulletScript.SetSpeed(bulletSpeed);
+            }
+        }
+        bullet.transform.rotation = Quaternion.Euler(0, 0, -90);
+        // Set bullet tag */
+        missile.tag = "PlayerBullet";
     }
 
     private void OnTriggerEnter2D(Collider2D other)

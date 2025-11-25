@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1556637464097159922}
   - component: {fileID: 1419207721864861271}
   - component: {fileID: 271889393370682244}
+  - component: {fileID: 6033158813434473015}
+  - component: {fileID: 4399371705436831043}
   m_Layer: 0
   m_Name: missile
   m_TagString: Untagged
@@ -162,3 +164,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.44994, y: 2.0910633}
   m_EdgeRadius: 0
+--- !u!114 &6033158813434473015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2569810888754026073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c006d0c8d070740800401b604d5c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  speed: 0
+  lifetime: 5
+--- !u!114 &4399371705436831043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2569810888754026073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4c4178571d34634c9afeb60d42f530c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAngle: -90
+  duration: 0.95
+  startAngle: 0
