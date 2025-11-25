@@ -219,5 +219,6 @@ public class Movements : MonoBehaviour
 {
     if (missileText != null)
         missileText.text = "Missile: " + missileCount + " / " + missileMax;
+        //test
 }
 }
