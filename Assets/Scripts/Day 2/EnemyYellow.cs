@@ -10,6 +10,7 @@ public class EnemyYellow : MonoBehaviour
     public GameObject enemyBulletPrefab;
     private Transform playerTransform;
     Rigidbody2D rb;
+    private Movements player;
     
     void Update()
     {   
@@ -24,6 +25,7 @@ public class EnemyYellow : MonoBehaviour
 
     void Start()
     {   
+        player = FindObjectOfType<Movements>();
         rb = GetComponent<Rigidbody2D>();
         float yRot = transform.eulerAngles.y;
         if (Mathf.Approximately(Mathf.DeltaAngle(yRot, 180f), 0f) || transform.localScale.x < 0f)
@@ -84,6 +86,7 @@ public class EnemyYellow : MonoBehaviour
     /// </summary>
     public void OnEnemyDestroyed()
     {
+        player.killCount += 1;
         // Add score when enemy is destroyed
         if (ScoreManager.Instance != null)
         {

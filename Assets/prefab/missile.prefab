@@ -180,6 +180,7 @@ MonoBehaviour:
   speed: 0
   lifetime: 5
   explosionPrefab: {fileID: 5243931933478091520, guid: 66934adc14cbabe49a25ecd33e7e13db, type: 3}
+  explosionAnimationPrefab: {fileID: 7299588144645730860, guid: 04a73cde0f590a6438d19a1e6b2fbda3, type: 3}
 --- !u!114 &4399371705436831043
 MonoBehaviour:
   m_ObjectHideFlags: 0

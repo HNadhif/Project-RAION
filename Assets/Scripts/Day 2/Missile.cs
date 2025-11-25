@@ -6,6 +6,7 @@ public class Missile : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField]private float lifetime = 5f;
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private GameObject explosionAnimationPrefab;
     private Rigidbody2D rb;
 
 
@@ -36,6 +37,12 @@ public class Missile : MonoBehaviour
         {
             // spawn circle di posisi missile
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            GameObject explosionAnim = Instantiate(explosionAnimationPrefab, transform.position, Quaternion.identity);
+            Rigidbody2D rb = explosionAnim.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.left * 13f; // ke kiri dengan kecepatan 2
+            }
 
             // kill missile
             Destroy(gameObject);
