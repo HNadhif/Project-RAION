@@ -39,11 +39,6 @@ public class Bullet : MonoBehaviour
         // If this is a player bullet and hits an enemy
         if (gameObject.CompareTag("PlayerBullet") && other.CompareTag("Enemy"))
         {
-            // Add score
-            if (ScoreManager.Instance != null)
-            {
-                ScoreManager.Instance.AddEnemyKillScore();
-            }
             
             // Destroy enemy
             Destroy(other.gameObject);
@@ -74,4 +69,5 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
