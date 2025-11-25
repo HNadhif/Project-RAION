@@ -598,7 +598,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 4499828308633540011, guid: 1776b7e57ba45fd4ca0abb5ebafbdb67, type: 3}
-  SpawnInterval: 3
+  EnemyTripleShotPrefab: {fileID: 3012857664711706393, guid: 62986f5a27cb57e47a19c2eb440a20b2, type: 3}
+  EnemyYellowPrefab: {fileID: 8617699521543457439, guid: 0daffcc86e8aae74082a19b7a17d4626, type: 3}
+  SpawnInterval: 2.5
   spawnBoundaryY: 4
   spawnBoundaryX: -4
 --- !u!4 &988403938
@@ -1162,7 +1164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 59.5256, y: -12.3517}
+  m_AnchoredPosition: {x: 59.525574, y: -12.351685}
   m_SizeDelta: {x: 119.0513, y: 24.7035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685364383
