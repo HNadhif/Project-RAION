@@ -20,12 +20,15 @@ public class Movements : MonoBehaviour
     [SerializeField] private float fireRate = 0.3f;
     [SerializeField] private KeyCode fireKey = KeyCode.Space;
     [SerializeField] private KeyCode missileKey = KeyCode.E;
-    
+    private Vector2 lastPos;
+    private Vector2 currentVelocity;
+
     private float nextFireTime = 0f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        lastPos = rb.position;
     }
 
     void Update()
@@ -37,6 +40,9 @@ public class Movements : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        Vector2 newPos = rb.position;
+        currentVelocity = (newPos - lastPos) / Time.fixedDeltaTime;
+        lastPos = newPos;
     }
 
     /// <summary>
@@ -115,31 +121,18 @@ public class Movements : MonoBehaviour
             return;
         }
         
-        // Determine fire point
         Vector3 spawnPosition = firePoint != null ? firePoint.position : transform.position;
         
         spawnPosition.y -= 0.5f;
         
         GameObject missile = Instantiate(missilePrefab, spawnPosition, Quaternion.identity);
-        
-        // Set bullet direction and speed
-        /* Rigidbody2D missileRb = missile.GetComponent<Rigidbody2D>();
+        Rigidbody2D missileRb = missile.GetComponent<Rigidbody2D>();
+
         if (missileRb != null)
         {
-            missile.linearVelocity = Vector2.right * bulletSpeed;
+            missileRb.linearVelocity = new Vector2(currentVelocity.x/2, 0);
         }
-        else
-        {
-            // If no Rigidbody2D, try to get Bullet component and set direction
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            if (bulletScript != null)
-            {
-                bulletScript.SetDirection(Vector3.right);
-                bulletScript.SetSpeed(bulletSpeed);
-            }
-        }
-        bullet.transform.rotation = Quaternion.Euler(0, 0, -90);
-        // Set bullet tag */
+        
         missile.tag = "PlayerBullet";
     }
 

@@ -5,6 +5,7 @@ public class Missile : MonoBehaviour
     [SerializeField] private Vector3 direction;
     [SerializeField] private float speed;
     [SerializeField]private float lifetime = 5f;
+    [SerializeField] private GameObject explosionPrefab;
     private Rigidbody2D rb;
 
 
@@ -33,14 +34,10 @@ public class Missile : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            // Add score
-            if (ScoreManager.Instance != null)
-            {
-                ScoreManager.Instance.AddEnemyKillScore();
-            }
-            
-            Destroy(other.gameObject);
-            
+            // spawn circle di posisi missile
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+            // kill missile
             Destroy(gameObject);
         }
     }

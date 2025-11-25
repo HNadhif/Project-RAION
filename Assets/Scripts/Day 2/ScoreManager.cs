@@ -5,7 +5,7 @@ public class ScoreManager : MonoBehaviour
 {
     [Header("Score Settings")]
     [SerializeField] private int score = 0;
-    [SerializeField] private int enemyKillScore = 100;
+    [SerializeField] private int enemyKillScore = 1000;
     
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -40,6 +40,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += enemyKillScore;
         UpdateScoreUI();
+        Debug.Log("kill");
     }
     
     /// <summary>

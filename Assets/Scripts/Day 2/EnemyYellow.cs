@@ -99,13 +99,19 @@ public class EnemyYellow : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // If hit by player bullet
-        if (other.CompareTag("PlayerBullet"))
+        if (other.CompareTag("PlayerBullet") || other.CompareTag("Explosion"))
         {
-            // Destroy the bullet
-            Destroy(other.gameObject);
-            
-            // Destroy enemy and add score
-            OnEnemyDestroyed();
+            if (other.CompareTag("Explosion"))
+            {
+                OnEnemyDestroyed();
+            } else
+            {
+                // Destroy the bullet
+                Destroy(other.gameObject);
+                
+                // Destroy enemy and add score
+                OnEnemyDestroyed();
+            }
         }
     }
 

@@ -601,6 +601,8 @@ MonoBehaviour:
   EnemyTripleShotPrefab: {fileID: 3012857664711706393, guid: 62986f5a27cb57e47a19c2eb440a20b2, type: 3}
   EnemyYellowPrefab: {fileID: 8617699521543457439, guid: 0daffcc86e8aae74082a19b7a17d4626, type: 3}
   SpawnInterval: 2.5
+  TripleSpawnInterval: 5
+  YellowSpawnInterval: 8
   spawnBoundaryY: 4
   spawnBoundaryX: -4
 --- !u!4 &988403938
@@ -1350,10 +1352,12 @@ MonoBehaviour:
   speed: 5
   gameOverCanvas: {fileID: 613239863}
   bulletPrefab: {fileID: 3764210547919164242, guid: 5d0c386cf5f92dc46a7c8d9f0bc2c02c, type: 3}
+  missilePrefab: {fileID: 2569810888754026073, guid: 003873107865de04da9c41a3ab2bd94c, type: 3}
   firePoint: {fileID: 132812856}
   bulletSpeed: 15
   fireRate: 0.3
   fireKey: 32
+  missileKey: 101
 --- !u!61 &1796879126
 BoxCollider2D:
   m_ObjectHideFlags: 0
