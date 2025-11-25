@@ -14,6 +14,7 @@ public class Movements : MonoBehaviour
 
     [Header("Shooting Settings")]
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject missilePrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float bulletSpeed = 15f;
     [SerializeField] private float fireRate = 0.3f;
