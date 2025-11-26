@@ -10,6 +10,7 @@ public class EnemyTripleShot : MonoBehaviour
 
     public GameObject enemyBulletPrefab;
     Rigidbody2D rb;
+    private Movements player;
     
     void Update()
     {   
@@ -24,6 +25,7 @@ public class EnemyTripleShot : MonoBehaviour
 
     void Start()
     {   
+        player = FindObjectOfType<Movements>();
         rb = GetComponent<Rigidbody2D>();
         float yRot = transform.eulerAngles.y;
         if (Mathf.Approximately(Mathf.DeltaAngle(yRot, 180f), 0f) || transform.localScale.x < 0f)
@@ -81,6 +83,7 @@ public class EnemyTripleShot : MonoBehaviour
     /// </summary>
     public void OnEnemyDestroyed()
     {
+        player.killCount += 1;
         // Add score when enemy is destroyed
         if (ScoreManager.Instance != null)
         {
@@ -96,13 +99,19 @@ public class EnemyTripleShot : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // If hit by player bullet
-        if (other.CompareTag("PlayerBullet"))
+        if (other.CompareTag("PlayerBullet") || other.CompareTag("Explosion"))
         {
-            // Destroy the bullet
-            Destroy(other.gameObject);
-            
-            // Destroy enemy and add score
-            OnEnemyDestroyed();
+            if (other.CompareTag("Explosion"))
+            {
+                OnEnemyDestroyed();
+            } else
+            {
+                // Destroy the bullet
+                Destroy(other.gameObject);
+                
+                // Destroy enemy and add score
+                OnEnemyDestroyed();
+            }
         }
     }
 
