@@ -67,5 +67,7 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Project-RAION.slnx"
+    "dotnet.defaultSolution": "Project-RAION.slnx",
+    "dotnet.preferCSharpExtension": true,
+    "CodeGPT.apiKey": "Ollama"
 }
