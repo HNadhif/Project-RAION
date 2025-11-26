@@ -14,7 +14,6 @@ public class Movements : MonoBehaviour
     [SerializeField] private GameObject gameOverCanvas;
 
     [Header("Shooting Settings")]
-    [SerializeField] private TextMeshProUGUI missileText;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject missilePrefab;
     [SerializeField] private GameObject missilePrefab1;
@@ -216,8 +215,10 @@ public class Movements : MonoBehaviour
         
     }
     private void UpdateMissileUI()
-{
-    if (missileText != null)
-        missileText.text = "Missile: " + missileCount + " / " + missileMax;
-}
+    {
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.UpdateMissileUI(missileCount, missileMax);
+        }
+    }
 }

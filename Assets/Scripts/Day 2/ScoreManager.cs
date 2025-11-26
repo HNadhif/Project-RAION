@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI finalScoreText; // For game over screen
+    [SerializeField] private TextMeshProUGUI missileText;
     
     // Singleton instance
     public static ScoreManager Instance { get; private set; }
@@ -83,5 +84,18 @@ public class ScoreManager : MonoBehaviour
     public void OnGameOver()
     {
         UpdateScoreUI();
+    }
+    
+    /// <summary>
+    /// Update missile UI text
+    /// </summary>
+    /// <param name="currentCount">Current missile count</param>
+    /// <param name="maxCount">Maximum missile count</param>
+    public void UpdateMissileUI(int currentCount, int maxCount)
+    {
+        if (missileText != null)
+        {
+            missileText.text = "Missile: " + currentCount + " / " + maxCount;
+        }
     }
 }
