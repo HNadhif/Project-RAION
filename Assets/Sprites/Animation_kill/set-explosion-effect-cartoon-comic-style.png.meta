@@ -1,0 +1,822 @@
+fileFormatVersion: 2
+guid: 2518d637aa3c4f640bff7077d20ee5a0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5873923559169908597
+    second: set-explosion-effect-cartoon-comic-style_0
+  - first:
+      213: 2939543383905009075
+    second: set-explosion-effect-cartoon-comic-style_1
+  - first:
+      213: 2920498718724902599
+    second: set-explosion-effect-cartoon-comic-style_2
+  - first:
+      213: -2908516263650298189
+    second: set-explosion-effect-cartoon-comic-style_3
+  - first:
+      213: 1886761224652474629
+    second: set-explosion-effect-cartoon-comic-style_4
+  - first:
+      213: -2413754495536220735
+    second: set-explosion-effect-cartoon-comic-style_5
+  - first:
+      213: -4571233011947967325
+    second: set-explosion-effect-cartoon-comic-style_6
+  - first:
+      213: 5950752359640358678
+    second: set-explosion-effect-cartoon-comic-style_7
+  - first:
+      213: 1836865228452967648
+    second: set-explosion-effect-cartoon-comic-style_8
+  - first:
+      213: -17581938436959884
+    second: set-explosion-effect-cartoon-comic-style_9
+  - first:
+      213: 8866278047800277225
+    second: set-explosion-effect-cartoon-comic-style_10
+  - first:
+      213: -1594309479017163936
+    second: set-explosion-effect-cartoon-comic-style_11
+  - first:
+      213: 1912417092980754513
+    second: set-explosion-effect-cartoon-comic-style_12
+  - first:
+      213: 1777992185816893287
+    second: set-explosion-effect-cartoon-comic-style_13
+  - first:
+      213: 1387114770129475512
+    second: set-explosion-effect-cartoon-comic-style_14
+  - first:
+      213: -3414156775231212307
+    second: set-explosion-effect-cartoon-comic-style_15
+  - first:
+      213: 3798478343100730944
+    second: set-explosion-effect-cartoon-comic-style_16
+  - first:
+      213: 7069806741137006063
+    second: set-explosion-effect-cartoon-comic-style_17
+  - first:
+      213: 4505061234252740779
+    second: set-explosion-effect-cartoon-comic-style_18
+  - first:
+      213: -8920603886979495660
+    second: set-explosion-effect-cartoon-comic-style_19
+  - first:
+      213: 2141462323952779540
+    second: set-explosion-effect-cartoon-comic-style_20
+  - first:
+      213: -7442781670772870242
+    second: set-explosion-effect-cartoon-comic-style_21
+  - first:
+      213: -1816281850892394098
+    second: set-explosion-effect-cartoon-comic-style_22
+  - first:
+      213: -2587699324913899791
+    second: set-explosion-effect-cartoon-comic-style_23
+  - first:
+      213: -1946323728614618278
+    second: set-explosion-effect-cartoon-comic-style_24
+  - first:
+      213: 21067817009620589
+    second: set-explosion-effect-cartoon-comic-style_25
+  - first:
+      213: 3788867829341257058
+    second: set-explosion-effect-cartoon-comic-style_26
+  - first:
+      213: -6633400692635054797
+    second: set-explosion-effect-cartoon-comic-style_27
+  - first:
+      213: -800949858988852204
+    second: set-explosion-effect-cartoon-comic-style_28
+  - first:
+      213: -8179514494942266491
+    second: set-explosion-effect-cartoon-comic-style_29
+  - first:
+      213: 2547199118897384565
+    second: set-explosion-effect-cartoon-comic-style_30
+  - first:
+      213: -890915102676526064
+    second: set-explosion-effect-cartoon-comic-style_31
+  - first:
+      213: -7561688805519742683
+    second: set-explosion-effect-cartoon-comic-style_32
+  - first:
+      213: -7109081257468774630
+    second: set-explosion-effect-cartoon-comic-style_33
+  - first:
+      213: 1319214053721183749
+    second: set-explosion-effect-cartoon-comic-style_34
+  - first:
+      213: 576538262684522567
+    second: set-explosion-effect-cartoon-comic-style_35
+  - first:
+      213: 6373497092498603807
+    second: set-explosion-effect-cartoon-comic-style_36
+  - first:
+      213: -4087017510566832094
+    second: set-explosion-effect-cartoon-comic-style_37
+  - first:
+      213: 6618171420477848372
+    second: set-explosion-effect-cartoon-comic-style_38
+  - first:
+      213: 3774513485276686082
+    second: set-explosion-effect-cartoon-comic-style_39
+  - first:
+      213: -4804441597998128889
+    second: set-explosion-effect-cartoon-comic-style_40
+  - first:
+      213: 4609432794835783626
+    second: set-explosion-effect-cartoon-comic-style_41
+  - first:
+      213: 2120859596618932492
+    second: set-explosion-effect-cartoon-comic-style_42
+  - first:
+      213: 3827573133487404458
+    second: set-explosion-effect-cartoon-comic-style_43
+  - first:
+      213: -1207192848492819149
+    second: set-explosion-effect-cartoon-comic-style_44
+  - first:
+      213: -2015201949698053551
+    second: set-explosion-effect-cartoon-comic-style_45
+  - first:
+      213: 1563229895932511218
+    second: set-explosion-effect-cartoon-comic-style_46
+  - first:
+      213: 8406801535030988324
+    second: set-explosion-effect-cartoon-comic-style_47
+  - first:
+      213: 6486301815521305452
+    second: set-explosion-effect-cartoon-comic-style_48
+  - first:
+      213: 5957148141798445473
+    second: set-explosion-effect-cartoon-comic-style_49
+  - first:
+      213: -8112915862788895446
+    second: set-explosion-effect-cartoon-comic-style_50
+  - first:
+      213: -6726357976758460137
+    second: set-explosion-effect-cartoon-comic-style_51
+  - first:
+      213: -2641506226675567222
+    second: set-explosion-effect-cartoon-comic-style_52
+  - first:
+      213: -7484599919484718310
+    second: set-explosion-effect-cartoon-comic-style_53
+  - first:
+      213: -2107290958905158075
+    second: set-explosion-effect-cartoon-comic-style_54
+  - first:
+      213: 4788603291599862998
+    second: set-explosion-effect-cartoon-comic-style_55
+  - first:
+      213: -5267883576195395438
+    second: set-explosion-effect-cartoon-comic-style_56
+  - first:
+      213: -5030304266392528370
+    second: set-explosion-effect-cartoon-comic-style_57
+  - first:
+      213: 7407517977525826855
+    second: set-explosion-effect-cartoon-comic-style_58
+  - first:
+      213: -725873844790024061
+    second: set-explosion-effect-cartoon-comic-style_59
+  - first:
+      213: -430428444797681413
+    second: set-explosion-effect-cartoon-comic-style_60
+  - first:
+      213: 7707338977481918113
+    second: set-explosion-effect-cartoon-comic-style_61
+  - first:
+      213: 6503337277564678141
+    second: set-explosion-effect-cartoon-comic-style_62
+  - first:
+      213: 8699240243608634835
+    second: set-explosion-effect-cartoon-comic-style_63
+  - first:
+      213: 5541844627305886770
+    second: set-explosion-effect-cartoon-comic-style_64
+  - first:
+      213: 794071509863727174
+    second: set-explosion-effect-cartoon-comic-style_65
+  - first:
+      213: 2812108191337876910
+    second: set-explosion-effect-cartoon-comic-style_66
+  - first:
+      213: -4829860525041423416
+    second: set-explosion-effect-cartoon-comic-style_67
+  - first:
+      213: -6379380197219446180
+    second: set-explosion-effect-cartoon-comic-style_68
+  - first:
+      213: -4151852159634709561
+    second: set-explosion-effect-cartoon-comic-style_69
+  - first:
+      213: 741841439681362737
+    second: set-explosion-effect-cartoon-comic-style_70
+  - first:
+      213: -4929001697790406838
+    second: set-explosion-effect-cartoon-comic-style_71
+  - first:
+      213: 7761869081613474714
+    second: set-explosion-effect-cartoon-comic-style_72
+  - first:
+      213: 9031348547213129030
+    second: set-explosion-effect-cartoon-comic-style_73
+  - first:
+      213: -8435846716442556225
+    second: set-explosion-effect-cartoon-comic-style_74
+  - first:
+      213: -2086693098715573375
+    second: set-explosion-effect-cartoon-comic-style_75
+  - first:
+      213: -7582173440231800222
+    second: set-explosion-effect-cartoon-comic-style_76
+  - first:
+      213: 3230118327671775881
+    second: set-explosion-effect-cartoon-comic-style_77
+  - first:
+      213: 8653448740133369857
+    second: set-explosion-effect-cartoon-comic-style_78
+  - first:
+      213: 2809378852351895259
+    second: set-explosion-effect-cartoon-comic-style_79
+  - first:
+      213: 2580847834905442187
+    second: set-explosion-effect-cartoon-comic-style_80
+  - first:
+      213: -7916816598573636923
+    second: set-explosion-effect-cartoon-comic-style_81
+  - first:
+      213: 3706544423254046722
+    second: set-explosion-effect-cartoon-comic-style_82
+  - first:
+      213: 7333038417247132521
+    second: set-explosion-effect-cartoon-comic-style_83
+  - first:
+      213: 3175247097150738286
+    second: set-explosion-effect-cartoon-comic-style_84
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_0
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 1525
+        width: 375
+        height: 393
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57fde1e0b5e548150800000000000000
+      internalID: 5873923559169908597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_1
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 1889
+        width: 14
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bdf18f122b5bc820800000000000000
+      internalID: 2939543383905009075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_2
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1611
+        width: 203
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cec4987c12b78820800000000000000
+      internalID: 2920498718724902599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_3
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 1581
+        width: 314
+        height: 283
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b67da14edfd2a7d0800000000000000
+      internalID: -2908516263650298189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_4
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 1802
+        width: 48
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509446b565f1f2a10800000000000000
+      internalID: 1886761224652474629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_5
+      rect:
+        serializedVersion: 2
+        x: 1755
+        y: 1671
+        width: 50
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5bf8e231f908ed0800000000000000
+      internalID: -2413754495536220735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_6
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 875
+        width: 540
+        height: 505
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ac6d498bc7bf80c0800000000000000
+      internalID: -4571233011947967325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_7
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 880
+        width: 566
+        height: 528
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f5eae1eb1559250800000000000000
+      internalID: 5950752359640358678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_19
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 1183
+        width: 38
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4194e963706a33480800000000000000
+      internalID: -8920603886979495660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_20
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1041
+        width: 78
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 411861f33a008bd10800000000000000
+      internalID: 2141462323952779540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_25
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 864
+        width: 563
+        height: 514
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 13, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d662d056119da4000800000000000000
+      internalID: 21067817009620589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_27
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 844
+        width: 20
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33d48ae173d61f3a0800000000000000
+      internalID: -6633400692635054797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_30
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 865
+        width: 14
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c011e5a18795320800000000000000
+      internalID: 2547199118897384565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_37
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 148
+        width: 595
+        height: 574
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 228dcd36a3ff747c0800000000000000
+      internalID: -4087017510566832094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_41
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 169
+        width: 604
+        height: 544
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf093084bef7ff30800000000000000
+      internalID: 4609432794835783626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: set-explosion-effect-cartoon-comic-style_79
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 157
+        width: 584
+        height: 584
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd6ede57e2becf620800000000000000
+      internalID: 2809378852351895259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 466bc8dc76872b241a43c948be09f4cc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      set-explosion-effect-cartoon-comic-style_0: 5873923559169908597
+      set-explosion-effect-cartoon-comic-style_1: 2939543383905009075
+      set-explosion-effect-cartoon-comic-style_10: 8866278047800277225
+      set-explosion-effect-cartoon-comic-style_11: -1594309479017163936
+      set-explosion-effect-cartoon-comic-style_12: 1912417092980754513
+      set-explosion-effect-cartoon-comic-style_13: 1777992185816893287
+      set-explosion-effect-cartoon-comic-style_14: 1387114770129475512
+      set-explosion-effect-cartoon-comic-style_15: -3414156775231212307
+      set-explosion-effect-cartoon-comic-style_16: 3798478343100730944
+      set-explosion-effect-cartoon-comic-style_17: 7069806741137006063
+      set-explosion-effect-cartoon-comic-style_18: 4505061234252740779
+      set-explosion-effect-cartoon-comic-style_19: -8920603886979495660
+      set-explosion-effect-cartoon-comic-style_2: 2920498718724902599
+      set-explosion-effect-cartoon-comic-style_20: 2141462323952779540
+      set-explosion-effect-cartoon-comic-style_21: -7442781670772870242
+      set-explosion-effect-cartoon-comic-style_22: -1816281850892394098
+      set-explosion-effect-cartoon-comic-style_23: -2587699324913899791
+      set-explosion-effect-cartoon-comic-style_24: -1946323728614618278
+      set-explosion-effect-cartoon-comic-style_25: 21067817009620589
+      set-explosion-effect-cartoon-comic-style_26: 3788867829341257058
+      set-explosion-effect-cartoon-comic-style_27: -6633400692635054797
+      set-explosion-effect-cartoon-comic-style_28: -800949858988852204
+      set-explosion-effect-cartoon-comic-style_29: -8179514494942266491
+      set-explosion-effect-cartoon-comic-style_3: -2908516263650298189
+      set-explosion-effect-cartoon-comic-style_30: 2547199118897384565
+      set-explosion-effect-cartoon-comic-style_31: -890915102676526064
+      set-explosion-effect-cartoon-comic-style_32: -7561688805519742683
+      set-explosion-effect-cartoon-comic-style_33: -7109081257468774630
+      set-explosion-effect-cartoon-comic-style_34: 1319214053721183749
+      set-explosion-effect-cartoon-comic-style_35: 576538262684522567
+      set-explosion-effect-cartoon-comic-style_36: 6373497092498603807
+      set-explosion-effect-cartoon-comic-style_37: -4087017510566832094
+      set-explosion-effect-cartoon-comic-style_38: 6618171420477848372
+      set-explosion-effect-cartoon-comic-style_39: 3774513485276686082
+      set-explosion-effect-cartoon-comic-style_4: 1886761224652474629
+      set-explosion-effect-cartoon-comic-style_40: -4804441597998128889
+      set-explosion-effect-cartoon-comic-style_41: 4609432794835783626
+      set-explosion-effect-cartoon-comic-style_42: 2120859596618932492
+      set-explosion-effect-cartoon-comic-style_43: 3827573133487404458
+      set-explosion-effect-cartoon-comic-style_44: -1207192848492819149
+      set-explosion-effect-cartoon-comic-style_45: -2015201949698053551
+      set-explosion-effect-cartoon-comic-style_46: 1563229895932511218
+      set-explosion-effect-cartoon-comic-style_47: 8406801535030988324
+      set-explosion-effect-cartoon-comic-style_48: 6486301815521305452
+      set-explosion-effect-cartoon-comic-style_49: 5957148141798445473
+      set-explosion-effect-cartoon-comic-style_5: -2413754495536220735
+      set-explosion-effect-cartoon-comic-style_50: -8112915862788895446
+      set-explosion-effect-cartoon-comic-style_51: -6726357976758460137
+      set-explosion-effect-cartoon-comic-style_52: -2641506226675567222
+      set-explosion-effect-cartoon-comic-style_53: -7484599919484718310
+      set-explosion-effect-cartoon-comic-style_54: -2107290958905158075
+      set-explosion-effect-cartoon-comic-style_55: 4788603291599862998
+      set-explosion-effect-cartoon-comic-style_56: -5267883576195395438
+      set-explosion-effect-cartoon-comic-style_57: -5030304266392528370
+      set-explosion-effect-cartoon-comic-style_58: 7407517977525826855
+      set-explosion-effect-cartoon-comic-style_59: -725873844790024061
+      set-explosion-effect-cartoon-comic-style_6: -4571233011947967325
+      set-explosion-effect-cartoon-comic-style_60: -430428444797681413
+      set-explosion-effect-cartoon-comic-style_61: 7707338977481918113
+      set-explosion-effect-cartoon-comic-style_62: 6503337277564678141
+      set-explosion-effect-cartoon-comic-style_63: 8699240243608634835
+      set-explosion-effect-cartoon-comic-style_64: 5541844627305886770
+      set-explosion-effect-cartoon-comic-style_65: 794071509863727174
+      set-explosion-effect-cartoon-comic-style_66: 2812108191337876910
+      set-explosion-effect-cartoon-comic-style_67: -4829860525041423416
+      set-explosion-effect-cartoon-comic-style_68: -6379380197219446180
+      set-explosion-effect-cartoon-comic-style_69: -4151852159634709561
+      set-explosion-effect-cartoon-comic-style_7: 5950752359640358678
+      set-explosion-effect-cartoon-comic-style_70: 741841439681362737
+      set-explosion-effect-cartoon-comic-style_71: -4929001697790406838
+      set-explosion-effect-cartoon-comic-style_72: 7761869081613474714
+      set-explosion-effect-cartoon-comic-style_73: 9031348547213129030
+      set-explosion-effect-cartoon-comic-style_74: -8435846716442556225
+      set-explosion-effect-cartoon-comic-style_75: -2086693098715573375
+      set-explosion-effect-cartoon-comic-style_76: -7582173440231800222
+      set-explosion-effect-cartoon-comic-style_77: 3230118327671775881
+      set-explosion-effect-cartoon-comic-style_78: 8653448740133369857
+      set-explosion-effect-cartoon-comic-style_79: 2809378852351895259
+      set-explosion-effect-cartoon-comic-style_8: 1836865228452967648
+      set-explosion-effect-cartoon-comic-style_80: 2580847834905442187
+      set-explosion-effect-cartoon-comic-style_81: -7916816598573636923
+      set-explosion-effect-cartoon-comic-style_82: 3706544423254046722
+      set-explosion-effect-cartoon-comic-style_83: 7333038417247132521
+      set-explosion-effect-cartoon-comic-style_84: 3175247097150738286
+      set-explosion-effect-cartoon-comic-style_9: -17581938436959884
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

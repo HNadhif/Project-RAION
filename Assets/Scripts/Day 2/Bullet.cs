@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Vector3 direction;
     [SerializeField] private float speed;
     private float lifetime = 5f;
+    [SerializeField] private GameObject explosionAnimationPrefab;
 
     private void Update()
     {
@@ -39,7 +40,18 @@ public class Bullet : MonoBehaviour
         // If this is a player bullet and hits an enemy
         if (gameObject.CompareTag("PlayerBullet") && other.CompareTag("Enemy"))
         {
-            
+            if (explosionAnimationPrefab != null)
+            {
+                GameObject explosionAnim = Instantiate(explosionAnimationPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D rrb = explosionAnim.GetComponent<Rigidbody2D>();
+                if (rrb != null)
+                {
+                    rrb.linearVelocity = Vector2.left * 13f;
+                }
+                
+                // Optional: Auto-destroy explosion anim setelah beberapa detik
+                Destroy(explosionAnim, 2f);
+            }
             // Destroy enemy
             Destroy(other.gameObject);
             
