@@ -9,8 +9,10 @@ public class EnemyTripleShot : MonoBehaviour
     private int facing = 1;
 
     public GameObject enemyBulletPrefab;
+    public GameObject deathSoundBulletPrefab;
     Rigidbody2D rb;
     private Movements player;
+    [SerializeField] private GameObject bulletSound;
     
     void Update()
     {   
@@ -48,6 +50,10 @@ public class EnemyTripleShot : MonoBehaviour
     {
         if (enemyBulletPrefab != null)
         {
+            if (bulletSound != null)
+            {
+                Instantiate(bulletSound, transform.position, Quaternion.identity);
+            }
             Vector3 spawnPosition = transform.position;
             
             // Shoot ke tiga arah: kiri (tengah), atas-kiri, bawah-kiri
@@ -106,6 +112,10 @@ public class EnemyTripleShot : MonoBehaviour
                 OnEnemyDestroyed();
             } else
             {
+                if (deathSoundBulletPrefab != null)
+                {
+                    Instantiate(deathSoundBulletPrefab, transform.position, Quaternion.identity);
+                }
                 // Destroy the bullet
                 Destroy(other.gameObject);
                 

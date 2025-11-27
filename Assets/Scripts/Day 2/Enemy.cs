@@ -9,8 +9,10 @@ public class Enemy : MonoBehaviour
     private int facing = 1;
 
     public GameObject enemyBulletPrefab;
+    public GameObject deathSoundBulletPrefab;
     Rigidbody2D rb;
     private Movements player;
+    [SerializeField] private GameObject bulletSound;
 
     void Update()
     {   
@@ -48,6 +50,10 @@ public class Enemy : MonoBehaviour
     {
         if (enemyBulletPrefab != null)
         {
+            if (bulletSound != null)
+            {
+                Instantiate(bulletSound, transform.position, Quaternion.identity);
+            }
             Vector3 spawnPosition = transform.position;
             spawnPosition.y -= 0.3f;
 
@@ -98,6 +104,10 @@ public class Enemy : MonoBehaviour
                 OnEnemyDestroyed();
             } else
             {
+                if (deathSoundBulletPrefab != null)
+                {
+                    Instantiate(deathSoundBulletPrefab, transform.position, Quaternion.identity);
+                }
                 // Destroy the bullet
                 Destroy(other.gameObject);
                 

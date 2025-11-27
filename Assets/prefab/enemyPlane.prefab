@@ -55,6 +55,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -76,6 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
@@ -178,3 +181,5 @@ MonoBehaviour:
   moveSpeed: 3
   fireRate: 2
   enemyBulletPrefab: {fileID: 3571321784321240902, guid: 887059c1350100847a858abb432e8f6d, type: 3}
+  deathSoundBulletPrefab: {fileID: 825632763263787289, guid: 9d5a381131e716c4eb24e9c4c257027e, type: 3}
+  bulletSound: {fileID: 4418472459385803989, guid: f59dc5ee6e53f1e4484dc62f38bb54d0, type: 3}
