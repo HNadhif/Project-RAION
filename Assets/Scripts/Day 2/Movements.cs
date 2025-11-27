@@ -34,6 +34,8 @@ public class Movements : MonoBehaviour
     [SerializeField] private KeyCode missileKey = KeyCode.E;
     [SerializeField] private KeyCode missileKey1 = KeyCode.Q;
     [SerializeField] private int missileMax = 2;
+    [SerializeField] private GameObject shootSound;
+    [SerializeField] private GameObject dashSound;
     public bool IsImmune => isImmune;
     private Vector2 lastPos;
     private Vector2 currentVelocity;
@@ -181,6 +183,10 @@ public class Movements : MonoBehaviour
     {
         if (Input.GetKeyDown(dashKey) && !isDashing && dashCooldownRemaining <= 0f)
         {
+            if (dashSound != null)
+            {
+                Instantiate(dashSound, transform.position, Quaternion.identity);
+            }
             // Use current movement direction if available, otherwise dash to the right
             if (movement.sqrMagnitude > 0.01f)
                 dashDirection = movement.normalized;
@@ -237,6 +243,11 @@ public class Movements : MonoBehaviour
         {
             Debug.LogWarning("Bullet prefab is not assigned!");
             return;
+        }
+
+        if (shootSound != null)
+        {
+            Instantiate(shootSound, transform.position, Quaternion.identity);
         }
         
         // Determine fire point
