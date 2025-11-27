@@ -13,6 +13,16 @@ public class Movements : MonoBehaviour
     [Header("Game Over")]
     [SerializeField] private GameObject gameOverCanvas;
 
+    [Header("Dash Settings")]
+    [Tooltip("Dash speed in units/second")]
+    public float dashSpeed = 12f;
+    [Tooltip("Dash duration in seconds")]
+    public float dashDuration = 0.18f;
+    [Tooltip("Dash cooldown in seconds")]
+    public float dashCooldown = 1f;
+    [Tooltip("Key to trigger dash")]
+    public KeyCode dashKey = KeyCode.LeftShift;
+
     [Header("Shooting Settings")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject missilePrefab;
@@ -29,6 +39,13 @@ public class Movements : MonoBehaviour
     public int killCount = 0;
     private int missileCount = 0;
 
+    // Dash state
+    private bool isDashing = false;
+    private bool isImmune = false;
+    private float dashTimeRemaining = 0f;
+    private float dashCooldownRemaining = 0f;
+    private Vector2 dashDirection = Vector2.right;
+
 
     private float nextFireTime = 0f;
 
@@ -43,11 +60,34 @@ public class Movements : MonoBehaviour
     {
         HandleMovementInput();
         HandleShootingInput();
+        HandleDashInput();
+
+        // Dash / cooldown timers
+        if (dashCooldownRemaining > 0f)
+            dashCooldownRemaining = Mathf.Max(0f, dashCooldownRemaining - Time.deltaTime);
+
+        if (isDashing)
+        {
+            dashTimeRemaining -= Time.deltaTime;
+            if (dashTimeRemaining <= 0f)
+            {
+                isDashing = false;
+                isImmune = false;
+                dashCooldownRemaining = dashCooldown;
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        if (isDashing)
+        {
+            rb.MovePosition(rb.position + dashDirection * dashSpeed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        }
         Vector2 newPos = rb.position;
         currentVelocity = (newPos - lastPos) / Time.fixedDeltaTime;
         lastPos = newPos;
@@ -97,6 +137,26 @@ public class Movements : MonoBehaviour
         } else if (Input.GetKeyDown(missileKey1) && missileCount > 0)
         {
             ShootMissile1();
+        }
+    }
+
+    /// <summary>
+    /// Handle dash input and state
+    /// </summary>
+    private void HandleDashInput()
+    {
+        if (Input.GetKeyDown(dashKey) && !isDashing && dashCooldownRemaining <= 0f)
+        {
+            // Use current movement direction if available, otherwise dash to the right
+            if (movement.sqrMagnitude > 0.01f)
+                dashDirection = movement.normalized;
+            else
+                dashDirection = Vector2.right;
+
+            isDashing = true;
+            isImmune = true;
+            dashTimeRemaining = dashDuration;
+            // cooldown will start when dash ends
         }
     }
 
@@ -193,6 +253,10 @@ public class Movements : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Ignore hits while dashing (immune)
+        if (isImmune)
+            return;
+
         if(other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
         {
             Time.timeScale = 0;
