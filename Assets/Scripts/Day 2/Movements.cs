@@ -46,6 +46,10 @@ public class Movements : MonoBehaviour
     private float dashCooldownRemaining = 0f;
     private Vector2 dashDirection = Vector2.right;
 
+    // Renderers for opacity changes during dash
+    private SpriteRenderer[] spriteRenderers;
+    private Color[] originalColors;
+
 
     private float nextFireTime = 0f;
 
@@ -54,6 +58,17 @@ public class Movements : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lastPos = rb.position;
         UpdateMissileUI();
+
+        // Cache all SpriteRenderers on this object and children so we can change opacity during dash
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        if (spriteRenderers != null && spriteRenderers.Length > 0)
+        {
+            originalColors = new Color[spriteRenderers.Length];
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                originalColors[i] = spriteRenderers[i].color;
+            }
+        }
     }
 
     void Update()
@@ -64,7 +79,20 @@ public class Movements : MonoBehaviour
 
         // Dash / cooldown timers
         if (dashCooldownRemaining > 0f)
+        {
+            float before = dashCooldownRemaining;
+
             dashCooldownRemaining = Mathf.Max(0f, dashCooldownRemaining - Time.deltaTime);
+
+            // detect the exact moment cooldown hits 0
+            if (before > 0f && dashCooldownRemaining == 0f)
+            {
+                if (ScoreManager.Instance != null)
+                {
+                    ScoreManager.Instance.SetDashUIOpacity(1f);
+                }
+            }
+        }
 
         if (isDashing)
         {
@@ -74,6 +102,11 @@ public class Movements : MonoBehaviour
                 isDashing = false;
                 isImmune = false;
                 dashCooldownRemaining = dashCooldown;
+                RestoreOriginalOpacity();
+                if (ScoreManager.Instance != null)
+                {
+                    ScoreManager.Instance.SetDashUIOpacity(0.5f);
+                }
             }
         }
     }
@@ -156,7 +189,41 @@ public class Movements : MonoBehaviour
             isDashing = true;
             isImmune = true;
             dashTimeRemaining = dashDuration;
+            // Set semi-transparent while dashing
+            SetOpacity(0.5f);
             // cooldown will start when dash ends
+        }
+    }
+
+    /// <summary>
+    /// Set opacity for all cached sprite renderers
+    /// </summary>
+    private void SetOpacity(float alpha)
+    {
+        if (spriteRenderers == null)
+            return;
+
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            if (spriteRenderers[i] == null) continue;
+            Color c = spriteRenderers[i].color;
+            c.a = Mathf.Clamp01(alpha);
+            spriteRenderers[i].color = c;
+        }
+    }
+
+    /// <summary>
+    /// Restore original colors (including original alpha) for all sprite renderers
+    /// </summary>
+    private void RestoreOriginalOpacity()
+    {
+        if (spriteRenderers == null || originalColors == null)
+            return;
+
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            if (spriteRenderers[i] == null) continue;
+            spriteRenderers[i].color = originalColors[i];
         }
     }
 

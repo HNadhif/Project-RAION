@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI finalScoreText; // For game over screen
     [SerializeField] private TextMeshProUGUI missileText;
+    [SerializeField] private GameObject dashUI;
     
     // Singleton instance
     public static ScoreManager Instance { get; private set; }
@@ -96,6 +97,29 @@ public class ScoreManager : MonoBehaviour
         if (missileText != null)
         {
             missileText.text = "(Q/E) Missile: " + currentCount + " / " + maxCount;
+        }
+    }
+
+    public void SetDashUIOpacity(float alpha)
+    {
+        if (dashUI == null) return;
+
+        // Coba ambil Image (UI)
+        var img = dashUI.GetComponent<UnityEngine.UI.Image>();
+        if (img != null)
+        {
+            Color c = img.color;
+            c.a = Mathf.Clamp01(alpha);
+            img.color = c;
+        }
+
+        // Jika pakai SpriteRenderer (kalau dashUI bukan UI Canvas)
+        var sr = dashUI.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            Color c = sr.color;
+            c.a = Mathf.Clamp01(alpha);
+            sr.color = c;
         }
     }
 }
