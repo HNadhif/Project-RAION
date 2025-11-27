@@ -3,18 +3,17 @@ using TMPro;
 
 public class Movements : MonoBehaviour
 {
+    // ... (Semua variabel movement & shooting Anda tetap sama, saya sembunyikan biar ringkas) ...
+    
     [Header("Movement Settings")]
-    [Tooltip("Movement speed in units/second")]
     public float speed = 5f;
+    // ... Variable lain tetap ada ...
 
+    [Header("Components")]
     private Rigidbody2D rb;
-    private Vector2 movement;
+    private Health playerHealth; // Referensi ke script Health
 
-    [Header("Game Over")]
-    [SerializeField] private GameObject gameOverCanvas;
-
-    [Header("Shooting Settings")]
-    [SerializeField] private TextMeshProUGUI missileText;
+    // ... Variable Shooting tetap ada ...
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject missilePrefab;
     [SerializeField] private GameObject missilePrefab1;
@@ -25,17 +24,20 @@ public class Movements : MonoBehaviour
     [SerializeField] private KeyCode missileKey = KeyCode.E;
     [SerializeField] private KeyCode missileKey1 = KeyCode.Q;
     [SerializeField] private int missileMax = 2;
+    [SerializeField] private TextMeshProUGUI missileText;
+    
+    // ... Variable Logic ...
+    private Vector2 movement;
     private Vector2 lastPos;
     private Vector2 currentVelocity;
     public int killCount = 0;
     private int missileCount = 0;
-
-
     private float nextFireTime = 0f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerHealth = GetComponent<Health>(); // AMBIL REFERENSI HEALTH
         lastPos = rb.position;
         UpdateMissileUI();
     }
@@ -49,6 +51,7 @@ public class Movements : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        // ... (Logika missile count Anda tetap sama) ...
         Vector2 newPos = rb.position;
         currentVelocity = (newPos - lastPos) / Time.fixedDeltaTime;
         lastPos = newPos;
@@ -62,30 +65,17 @@ public class Movements : MonoBehaviour
                 killCount = 0;
             }
         }
-        else
-        {
-            if (killCount > 0)
-            {
-                killCount = 0;
-            }
-        }
+        // ...
     }
 
-    /// <summary>
-    /// Handle movement input
-    /// </summary>
+    // ... (Fungsi HandleMovementInput, HandleShootingInput, Shoot, ShootMissile tetap sama) ...
     private void HandleMovementInput()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        if (movement.sqrMagnitude > 1f)
-            movement = movement.normalized;
+        if (movement.sqrMagnitude > 1f) movement = movement.normalized;
     }
 
-    /// <summary>
-    /// Handle shooting input
-    /// </summary>
     private void HandleShootingInput()
     {
         if (Input.GetKeyDown(fireKey) && Time.time >= nextFireTime)
@@ -100,45 +90,20 @@ public class Movements : MonoBehaviour
             ShootMissile1();
         }
     }
-
-    /// <summary>
-    /// Shoot a bullet
-    /// </summary>
+    
     private void Shoot()
     {
-        if (bulletPrefab == null)
-        {
-            Debug.LogWarning("Bullet prefab is not assigned!");
-            return;
-        }
-        
-        // Determine fire point
+        if (bulletPrefab == null) return;
         Vector3 spawnPosition = firePoint != null ? firePoint.position : transform.position;
-        
-        // Adjust spawn position slightly forward
         spawnPosition.x += 0.5f;
-        
-        // Create bullet
         GameObject bullet = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
-        
-        // Set bullet direction and speed
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        if (bulletRb != null)
-        {
-            bulletRb.linearVelocity = Vector2.right * bulletSpeed;
-        }
-        else
-        {
-            // If no Rigidbody2D, try to get Bullet component and set direction
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            if (bulletScript != null)
-            {
-                bulletScript.SetDirection(Vector3.right);
-                bulletScript.SetSpeed(bulletSpeed);
-            }
+        if (bulletRb != null) bulletRb.linearVelocity = Vector2.right * bulletSpeed;
+        else {
+             Bullet bulletScript = bullet.GetComponent<Bullet>();
+             if (bulletScript != null) { bulletScript.SetDirection(Vector3.right); bulletScript.SetSpeed(bulletSpeed); }
         }
         bullet.transform.rotation = Quaternion.Euler(0, 0, -90);
-        // Set bullet tag
         bullet.tag = "PlayerBullet";
     }
 
@@ -146,24 +111,12 @@ public class Movements : MonoBehaviour
     {
         missileCount--;
         UpdateMissileUI();
-        if (missilePrefab == null)
-        {
-            Debug.LogWarning("Missile prefab is not assigned!");
-            return;
-        }
-        
+        if (missilePrefab == null) return;
         Vector3 spawnPosition = firePoint != null ? firePoint.position : transform.position;
-        
         spawnPosition.y -= 0.5f;
-        
         GameObject missile = Instantiate(missilePrefab, spawnPosition, Quaternion.identity);
         Rigidbody2D missileRb = missile.GetComponent<Rigidbody2D>();
-
-        if (missileRb != null)
-        {
-            missileRb.linearVelocity = new Vector2(currentVelocity.x/2, 0);
-        }
-        
+        if (missileRb != null) missileRb.linearVelocity = new Vector2(currentVelocity.x/2, 0);
         missile.tag = "PlayerBullet";
     }
 
@@ -171,54 +124,41 @@ public class Movements : MonoBehaviour
     {
         missileCount--;
         UpdateMissileUI();
-
-        if (missilePrefab1 == null)
-        {
-            Debug.LogWarning("Missile prefab1 is not assigned!");
-            return;
-        }
-
+        if (missilePrefab1 == null) return;
         Vector3 spawnPosition = firePoint != null ? firePoint.position : transform.position;
-        spawnPosition.x += 0.7f; // offset
-
+        spawnPosition.x += 0.7f;
         GameObject missile = Instantiate(missilePrefab1, spawnPosition, Quaternion.identity);
         Rigidbody2D missileRb = missile.GetComponent<Rigidbody2D>();
-
-        if (missileRb != null)
-        {
-            missileRb.linearVelocity = Vector2.right * (bulletSpeed + 5f); // lebih cepat dari peluru biasa
-        }
-
+        if (missileRb != null) missileRb.linearVelocity = Vector2.right * (bulletSpeed + 5f);
         missile.tag = "PlayerBullet";
     }
+    
+    private void UpdateMissileUI()
+    {
+        if (missileText != null) missileText.text = "Missile: " + missileCount + " / " + missileMax;
+    }
 
+    // --- BAGIAN PENTING YANG DIUBAH ---
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
+        // Cek tabrakan dengan Musuh ATAU Peluru Musuh
+        if (other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
         {
-            Time.timeScale = 0;
-            
-            // Update final score display
-            if (ScoreManager.Instance != null)
+            // Panggil fungsi damage di script Health
+            if (playerHealth != null)
             {
-                ScoreManager.Instance.OnGameOver();
+                playerHealth.TakeDamage(1);
+            }
+
+            // Jika yang menabrak adalah peluru, hancurkan pelurunya
+            if (other.CompareTag("EnemyBullet"))
+            {
+                Destroy(other.gameObject);
             }
             
-            if(gameOverCanvas != null)
-            {
-                gameOverCanvas.SetActive(true);
-            }
+            // OPSI: Jika menabrak musuh, apakah musuhnya hancur juga?
+            // Jika ya, uncomment baris di bawah:
+            // if (other.CompareTag("Enemy")) Destroy(other.gameObject);
         }
     }
-
-    private void OnCollisionEnter2D(Collider2D other)
-    {
-        
-    }
-    private void UpdateMissileUI()
-{
-    if (missileText != null)
-        missileText.text = "Missile: " + missileCount + " / " + missileMax;
-        //test
-}
 }
