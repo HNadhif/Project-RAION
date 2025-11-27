@@ -1,9 +1,7 @@
 using UnityEngine;
 
-/// <summary>
 /// Simple scrolling background that moves continuously to the left
 /// Handles infinite looping by repositioning when off-screen
-/// </summary>
 public class ScrollingBackground : MonoBehaviour
 {
     [Header("Scrolling Settings")]
@@ -48,25 +46,19 @@ public class ScrollingBackground : MonoBehaviour
         }
     }
     
-    /// <summary>
     /// Set scroll speed at runtime
-    /// </summary>
     public void SetScrollSpeed(float speed)
     {
         scrollSpeed = speed;
     }
     
-    /// <summary>
     /// Enable or disable scrolling
-    /// </summary>
     public void SetAutoScroll(bool enabled)
     {
         autoScroll = enabled;
     }
     
-    /// <summary>
     /// Set the loop distance (how far to travel before teleporting back)
-    /// </summary>
     public void SetLoopDistance(float distance)
     {
         loopDistance = distance;

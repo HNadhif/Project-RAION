@@ -10,13 +10,11 @@ public class Missile : MonoBehaviour
     private Rigidbody2D rb;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         lifetime -= Time.deltaTime;
@@ -41,7 +39,7 @@ public class Missile : MonoBehaviour
             Rigidbody2D rb = explosionAnim.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.linearVelocity = Vector2.left * 13f; // ke kiri dengan kecepatan 2
+                rb.linearVelocity = Vector2.left * 13f; 
             }
 
             // kill missile

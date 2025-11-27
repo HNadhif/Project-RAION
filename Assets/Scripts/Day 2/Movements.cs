@@ -45,6 +45,8 @@ public class Movements : MonoBehaviour
     [SerializeField] private int missileMax = 2;
     [SerializeField] private GameObject shootSound;
     [SerializeField] private GameObject dashSound;
+    [Header("Sound Effects")]
+    [SerializeField] private GameObject damageSound;
     
     private Vector2 lastPos;
     private Vector2 currentVelocity;
@@ -252,6 +254,12 @@ public class Movements : MonoBehaviour
             Instantiate(damageEffect, transform.position, Quaternion.identity);
         }
 
+        // TAMBAH INI: Play damage sound
+        if (damageSound != null)
+        {
+            Instantiate(damageSound, transform.position, Quaternion.identity);
+        }
+
         if (currentHealth <= 0)
         {
             Die();
@@ -315,6 +323,12 @@ public class Movements : MonoBehaviour
 
         // HENTIKAN SEMUA WAKTU DI ENGINE
         Time.timeScale = 0f;
+
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.Pause();
+        }
         
         // Tampilkan Game Over screen
         if (gameOverCanvas != null)

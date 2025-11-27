@@ -3834,7 +3834,7 @@ MonoBehaviour:
   - {fileID: 249685673}
   - {fileID: 566668421}
   damageEffect: {fileID: 0}
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 7299588144645730860, guid: 04a73cde0f590a6438d19a1e6b2fbda3, type: 3}
   gameOverCanvas: {fileID: 613239863}
   dashSpeed: 12
   dashDuration: 0.18
@@ -3852,6 +3852,8 @@ MonoBehaviour:
   missileMax: 3
   shootSound: {fileID: 7848872531183996613, guid: ce03e963477a4ee4c8dedd3c0ccdb0e9, type: 3}
   dashSound: {fileID: 814026592404203541, guid: 48c2b1fa301b97445a03db3846bea09e, type: 3}
+  damageSound: {fileID: 825632763263787289, guid: 9d5a381131e716c4eb24e9c4c257027e, type: 3}
+  deathSound: {fileID: 7342262660307082401, guid: 21baf2ebc3afeb1428cf0babc10c7948, type: 3}
   killCount: 0
 --- !u!61 &1796879126
 BoxCollider2D:

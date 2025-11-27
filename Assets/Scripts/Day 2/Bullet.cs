@@ -17,19 +17,13 @@ public class Bullet : MonoBehaviour
         }
     }
     
-    /// <summary>
     /// Set bullet direction
-    /// </summary>
-    /// <param name="newDirection">Direction vector</param>
     public void SetDirection(Vector3 newDirection)
     {
         direction = newDirection.normalized;
     }
     
-    /// <summary>
     /// Set bullet speed
-    /// </summary>
-    /// <param name="newSpeed">Speed value</param>
     public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
@@ -37,7 +31,6 @@ public class Bullet : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // If this is a player bullet and hits an enemy
         if (gameObject.CompareTag("PlayerBullet") && other.CompareTag("Enemy"))
         {
             if (explosionAnimationPrefab != null)
@@ -49,7 +42,6 @@ public class Bullet : MonoBehaviour
                     rrb.linearVelocity = Vector2.left * 13f;
                 }
                 
-                // Optional: Auto-destroy explosion anim setelah beberapa detik
                 Destroy(explosionAnim, 2f);
             }
             // Destroy enemy
@@ -58,32 +50,24 @@ public class Bullet : MonoBehaviour
             // Destroy bullet
             Destroy(gameObject);
         }
-        // If this is an enemy bullet and hits player
         else if (gameObject.CompareTag("EnemyBullet") && other.CompareTag("Player"))
         {
-            // Cek apakah player sedang immune (dash)
             Movements player = other.GetComponent<Movements>();
             if (player != null && player.IsImmune)
             {
-                // Player sedang dash → peluru menembus → jangan hancurkan
                 return;
             }
 
-            // Player tidak dash → hancurkan peluru
             Destroy(gameObject);
         }
     }
     
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // Alternative collision detection if using Collision instead of Trigger
-        // Handle collision the same way as trigger
         OnTriggerEnter2D(other.collider);
     }
     
-    /// <summary>
     /// Destroy bullet when it goes off screen
-    /// </summary>
     private void OnBecameInvisible()
     {
         Destroy(gameObject);

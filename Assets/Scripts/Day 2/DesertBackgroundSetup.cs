@@ -1,9 +1,7 @@
 using UnityEngine;
 
-/// <summary>
 /// Auto-setup Desert background layers with scrolling
 /// Attach to empty GameObject, assign sprites, then click "Setup Background" in Inspector
-/// </summary>
 public class DesertBackgroundSetup : MonoBehaviour
 {
     [Header("Camera")]
@@ -38,7 +36,6 @@ public class DesertBackgroundSetup : MonoBehaviour
     [ContextMenu("Setup Background")]
     public void SetupBackground()
     {
-        // Get camera
         if (mainCamera == null)
         {
             mainCamera = Camera.main;
@@ -50,32 +47,23 @@ public class DesertBackgroundSetup : MonoBehaviour
             return;
         }
         
-        // Clear existing children
         ClearChildren();
         
-        // Calculate camera dimensions
         float cameraHeight = mainCamera.orthographicSize * 2f;
         float cameraWidth = cameraHeight * mainCamera.aspect;
         
         Debug.Log($"Setting up background for camera: {cameraWidth}x{cameraHeight}");
         
-        // Create layers from back to front (higher Z = further back)
-        // Sky - static background, no scrolling
         CreateLayer("Sky", desertSky, 0, 0, 10f, cameraHeight * 1.1f, 0f, 0, cameraWidth, false, false);
         
-        // Moon - very slow scroll, decorative
         CreateLayer("Moon", desertMoon, 3, 2, 9f, 2f, 0.1f, 1, cameraWidth, false, false);
         
-        // Clouds - slow scroll, use extended loop for smoother transition
         CreateLayer("Clouds", desertCloud, 0, 1.5f, 8f, cameraHeight * 0.6f, cloudSpeed, 2, cameraWidth, true, true);
         
-        // Mountains - medium scroll, standard loop
         CreateLayer("Mountains", desertMountain, 0, -1f, 7f, cameraHeight * 0.7f, mountainSpeed, 3, cameraWidth, true, false);
         
-        // Dune Mid - faster scroll, standard loop
         CreateLayer("DuneMid", desertDuneMid, 0, -2f, 6f, cameraHeight * 0.7f, duneMidSpeed, 4, cameraWidth, true, false);
         
-        // Dune Front - fastest scroll (foreground), standard loop
         CreateLayer("DuneFront", desertDuneFront, 0, -3f, 5f, cameraHeight * 0.7f, duneFrontSpeed, 5, cameraWidth, true, false);
         
         Debug.Log("Desert background setup complete!");

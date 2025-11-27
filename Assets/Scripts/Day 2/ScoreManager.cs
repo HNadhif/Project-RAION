@@ -35,9 +35,7 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreUI();
     }
     
-    /// <summary>
     /// Add score when enemy is destroyed
-    /// </summary>
     public void AddEnemyKillScore()
     {
         score += enemyKillScore;
@@ -45,27 +43,20 @@ public class ScoreManager : MonoBehaviour
         Debug.Log("kill");
     }
     
-    /// <summary>
     /// Get current score
-    /// </summary>
-    /// <returns>Current score</returns>
     public int GetScore()
     {
         return score;
     }
     
-    /// <summary>
     /// Reset score to zero
-    /// </summary>
     public void ResetScore()
     {
         score = 0;
         UpdateScoreUI();
     }
     
-    /// <summary>
     /// Update score UI text
-    /// </summary>
     private void UpdateScoreUI()
     {
         if (scoreText != null)
@@ -79,19 +70,13 @@ public class ScoreManager : MonoBehaviour
         }
     }
     
-    /// <summary>
     /// Called when game is over to update final score display
-    /// </summary>
     public void OnGameOver()
     {
         UpdateScoreUI();
     }
     
-    /// <summary>
     /// Update missile UI text
-    /// </summary>
-    /// <param name="currentCount">Current missile count</param>
-    /// <param name="maxCount">Maximum missile count</param>
     public void UpdateMissileUI(int currentCount, int maxCount)
     {
         if (missileText != null)

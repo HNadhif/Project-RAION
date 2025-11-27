@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         sinceLastSpawnTriple += Time.deltaTime;
         sinceLastSpawnYellow += Time.deltaTime;
 
-        // Regular enemy spawns always using SpawnInterval
+        // Regular enemy spawns using SpawnInterval
         if (sinceLastSpawnRegular >= SpawnInterval)
         {
             Spawn(EnemyPrefab);
