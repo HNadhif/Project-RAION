@@ -95,7 +95,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (missileText != null)
         {
-            missileText.text = "Missile: " + currentCount + " / " + maxCount;
+            missileText.text = "(Q/E) Missile: " + currentCount + " / " + maxCount;
         }
     }
 }
