@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - Explosion
   - missile
+  - Wall
   layers:
   - Default
   - TransparentFX
