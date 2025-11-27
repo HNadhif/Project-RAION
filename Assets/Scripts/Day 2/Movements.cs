@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class Movements : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class Movements : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+
+    [Header("Health Settings")]
+    public int maxHealth = 3;
+    public int currentHealth;
+    public float immunityDuration = 2f; 
+    public GameObject[] hearts; 
+    public GameObject damageEffect;
+    public GameObject deathEffect;
 
     [Header("Game Over")]
     [SerializeField] private GameObject gameOverCanvas;
@@ -36,7 +45,7 @@ public class Movements : MonoBehaviour
     [SerializeField] private int missileMax = 2;
     [SerializeField] private GameObject shootSound;
     [SerializeField] private GameObject dashSound;
-    public bool IsImmune => isImmune;
+    
     private Vector2 lastPos;
     private Vector2 currentVelocity;
     public int killCount = 0;
@@ -49,18 +58,30 @@ public class Movements : MonoBehaviour
     private float dashCooldownRemaining = 0f;
     private Vector2 dashDirection = Vector2.right;
 
+    // Health state
+    private bool isDead = false;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D playerCollider;
+
     // Renderers for opacity changes during dash
     private SpriteRenderer[] spriteRenderers;
     private Color[] originalColors;
 
-
     private float nextFireTime = 0f;
+
+    public bool IsImmune => isImmune;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        playerCollider = GetComponent<Collider2D>();
+        
+        // Initialize health
+        currentHealth = maxHealth;
         lastPos = rb.position;
         UpdateMissileUI();
+        UpdateHeartUI();
 
         // Cache all SpriteRenderers on this object and children so we can change opacity during dash
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
@@ -72,10 +93,22 @@ public class Movements : MonoBehaviour
                 originalColors[i] = spriteRenderers[i].color;
             }
         }
+
+        // Pastikan Game Over mati dulu saat game mulai
+        if (gameOverCanvas != null)
+        {
+            gameOverCanvas.SetActive(false);
+        }
+        
+        // Pastikan time scale normal
+        Time.timeScale = 1f;
     }
 
     void Update()
     {
+        // Jangan proses input jika player mati
+        if (isDead) return;
+            
         HandleMovementInput();
         HandleShootingInput();
         HandleDashInput();
@@ -84,7 +117,6 @@ public class Movements : MonoBehaviour
         if (dashCooldownRemaining > 0f)
         {
             float before = dashCooldownRemaining;
-
             dashCooldownRemaining = Mathf.Max(0f, dashCooldownRemaining - Time.deltaTime);
 
             // detect the exact moment cooldown hits 0
@@ -116,6 +148,9 @@ public class Movements : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Jangan bergerak jika player mati
+        if (isDead) return;
+
         if (isDashing)
         {
             rb.MovePosition(rb.position + dashDirection * dashSpeed * Time.fixedDeltaTime);
@@ -202,6 +237,100 @@ public class Movements : MonoBehaviour
         }
     }
 
+    // ========== HEALTH SYSTEM ==========
+
+    public void TakeDamage(int damage)
+    {
+        if (isImmune || isDead) return;
+        
+        currentHealth -= damage;
+        UpdateHeartUI();
+
+        // Effect damage
+        if (damageEffect != null)
+        {
+            Instantiate(damageEffect, transform.position, Quaternion.identity);
+        }
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+        else
+        {
+            StartCoroutine(BecomeImmuneRoutine());
+        }
+    }
+
+    public void Heal(int healAmount)
+    {
+        if (isDead) return;
+        
+        currentHealth = Mathf.Min(currentHealth + healAmount, maxHealth);
+        UpdateHeartUI();
+    }
+
+    private void UpdateHeartUI()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (hearts[i] != null)
+            {
+                hearts[i].SetActive(i < currentHealth);
+            }
+        }
+    }
+
+    private IEnumerator BecomeImmuneRoutine()
+    {
+        isImmune = true;
+        float timer = 0;
+        
+        // Blink effect selama immunity
+        while (timer < immunityDuration)
+        {
+            spriteRenderer.enabled = !spriteRenderer.enabled; 
+            yield return new WaitForSeconds(0.1f);
+            timer += 0.1f;
+        }
+        
+        spriteRenderer.enabled = true; 
+        isImmune = false;
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        
+        // Death effect
+        if (deathEffect != null)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+        }
+
+        // Nonaktifkan komponen
+        spriteRenderer.enabled = false;
+        if (playerCollider != null)
+            playerCollider.enabled = false;
+
+        // HENTIKAN SEMUA WAKTU DI ENGINE
+        Time.timeScale = 0f;
+        
+        // Tampilkan Game Over screen
+        if (gameOverCanvas != null)
+        {
+            gameOverCanvas.SetActive(true);
+        }
+
+        // Update score final
+        if (ScoreManager.Instance != null)
+        {
+            ScoreManager.Instance.OnGameOver();
+        }
+    }
+
+    // ========== DASH EFFECTS ==========
+
     /// <summary>
     /// Set opacity for all cached sprite renderers
     /// </summary>
@@ -233,6 +362,8 @@ public class Movements : MonoBehaviour
             spriteRenderers[i].color = originalColors[i];
         }
     }
+
+    // ========== SHOOTING ==========
 
     /// <summary>
     /// Shoot a bullet
@@ -330,33 +461,29 @@ public class Movements : MonoBehaviour
         missile.tag = "PlayerBullet";
     }
 
+    // ========== COLLISION & UI ==========
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Ignore hits while dashing (immune)
-        if (isImmune)
-            return;
+        // Ignore hits while dashing (immune) atau sudah mati
+        if (isImmune || isDead) return;
 
         if(other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
         {
-            Time.timeScale = 0;
-            
-            // Update final score display
-            if (ScoreManager.Instance != null)
+            TakeDamage(1);
+
+            if (other.CompareTag("EnemyBullet"))
             {
-                ScoreManager.Instance.OnGameOver();
-            }
-            
-            if(gameOverCanvas != null)
-            {
-                gameOverCanvas.SetActive(true);
+                Destroy(other.gameObject);
             }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        
+        // Kosong atau isi dengan collision logic
     }
+    
     private void UpdateMissileUI()
     {
         if (ScoreManager.Instance != null)
