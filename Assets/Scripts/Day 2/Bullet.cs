@@ -49,8 +49,15 @@ public class Bullet : MonoBehaviour
         // If this is an enemy bullet and hits player
         else if (gameObject.CompareTag("EnemyBullet") && other.CompareTag("Player"))
         {
-            // Player will handle game over in Movements script
-            // Just destroy the bullet
+            // Cek apakah player sedang immune (dash)
+            Movements player = other.GetComponent<Movements>();
+            if (player != null && player.IsImmune)
+            {
+                // Player sedang dash → peluru menembus → jangan hancurkan
+                return;
+            }
+
+            // Player tidak dash → hancurkan peluru
             Destroy(gameObject);
         }
     }

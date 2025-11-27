@@ -34,6 +34,7 @@ public class Movements : MonoBehaviour
     [SerializeField] private KeyCode missileKey = KeyCode.E;
     [SerializeField] private KeyCode missileKey1 = KeyCode.Q;
     [SerializeField] private int missileMax = 2;
+    public bool IsImmune => isImmune;
     private Vector2 lastPos;
     private Vector2 currentVelocity;
     public int killCount = 0;
