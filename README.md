@@ -1,6 +1,6 @@
 # 🎮 Project-RAION-FilkomZ
 
-
+Link Build : https://drive.google.com/drive/folders/1tzLXSsxJSuda-YBaXWJpMNnIFAL3bvc3?hl=id
 
 ## 📖 Tentang Game
 **Project-RAION-FilkomZ** adalah sebuah game Shooter R-Type yang dikembangkan untuk Project RAION ACADEMY.
@@ -36,7 +36,7 @@ Berikut adalah kontributor dibalik project ini:
 
 Ikuti langkah berikut untuk mencoba game ini:
 
-1.  Buka halaman **Releases**.
+1.  Buka halaman **Releases** atau di https://drive.google.com/drive/folders/1tzLXSsxJSuda-YBaXWJpMNnIFAL3bvc3?hl=id
 2.  Unduh file bernama **`Build_game.zip`**.
 3.  Ekstrak file `.zip` tersebut (Klik kanan > *Extract Here*).
 4.  Buka folder hasil ekstrak.
