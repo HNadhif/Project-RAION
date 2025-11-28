@@ -36,7 +36,7 @@ Berikut adalah kontributor dibalik project ini:
 
 Ikuti langkah berikut untuk mencoba game ini:
 
-1.  Buka halaman **Releases** atau lihat file di repository ini.
+1.  Buka halaman **Releases**.
 2.  Unduh file bernama **`Build_game.zip`**.
 3.  Ekstrak file `.zip` tersebut (Klik kanan > *Extract Here*).
 4.  Buka folder hasil ekstrak.
